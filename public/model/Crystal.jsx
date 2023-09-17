@@ -20,15 +20,15 @@ import { useFrame } from "@react-three/fiber";
 export function Crystal(props) {
   const { nodes, materials } = useGLTF("/model/crystal.glb");
   const groundRef = useRef();
-  const { position, color } = useControls("big_crystal", {
-    position: {
-      value: [0, 0, 0],
-      step: 0.1,
-      min: -5,
-      max: 20,
-    },
-    color: { value: "blue" },
-  });
+  // const { position, color } = useControls("big_crystal", {
+  //   position: {
+  //     value: [0, 0, 0],
+  //     step: 0.1,
+  //     min: -5,
+  //     max: 20,
+  //   },
+  //   color: { value: "blue" },
+  // });
   const meshRefs = useRef([]);
   const scroll = useScroll();
   useEffect(() => {

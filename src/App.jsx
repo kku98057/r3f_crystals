@@ -16,44 +16,44 @@ import { useControls } from "leva";
 import Background from "./components/Background";
 
 function App() {
-  const {
-    luminanceThreshold,
-    luminanceSmoothing,
-    height,
-    position,
-    intensity,
-  } = useControls("effect", {
-    luminanceThreshold: {
-      value: 1,
-      step: 0.1,
-      min: 0,
-      max: 2,
-    },
-    luminanceSmoothing: {
-      value: 1,
-      step: 0.1,
-      min: 0,
-      max: 2,
-    },
-    height: {
-      value: 512,
-      step: 10,
-      min: 0,
-      max: 512,
-    },
-    position: {
-      value: [0, 0, 0],
-      step: 0.1,
-      min: -10,
-      max: 10,
-    },
-    intensity: {
-      value: 0.5,
-      step: 0.1,
-      min: 0,
-      max: 2,
-    },
-  });
+  // const {
+  //   luminanceThreshold,
+  //   luminanceSmoothing,
+  //   height,
+  //   position,
+  //   intensity,
+  // } = useControls("effect", {
+  //   luminanceThreshold: {
+  //     value: 1,
+  //     step: 0.1,
+  //     min: 0,
+  //     max: 2,
+  //   },
+  //   luminanceSmoothing: {
+  //     value: 1,
+  //     step: 0.1,
+  //     min: 0,
+  //     max: 2,
+  //   },
+  //   height: {
+  //     value: 512,
+  //     step: 10,
+  //     min: 0,
+  //     max: 512,
+  //   },
+  //   position: {
+  //     value: [0, 0, 0],
+  //     step: 0.1,
+  //     min: -10,
+  //     max: 10,
+  //   },
+  //   intensity: {
+  //     value: 0.5,
+  //     step: 0.1,
+  //     min: 0,
+  //     max: 2,
+  //   },
+  // });
 
   return (
     <Canvas camera={{ position: [0, 0, 2.5], fov: 75 }}>
@@ -71,11 +71,7 @@ function App() {
           bokehScale={1}
           height={512}
         />
-        <Bloom
-          luminanceThreshold={luminanceThreshold}
-          luminanceSmoothing={luminanceSmoothing}
-          height={height}
-        />
+        <Bloom luminanceThreshold={1} luminanceSmoothing={1} height={512} />
         <Noise opacity={0.02} />
         <Vignette eskil={false} offset={0.1} darkness={1.1} />
       </EffectComposer>
