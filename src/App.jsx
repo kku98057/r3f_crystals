@@ -2,7 +2,7 @@ import { Suspense, useState } from "react";
 
 import "./App.css";
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls, ScrollControls } from "@react-three/drei";
 import MyScene from "./components/MyScene";
 import {
   Bloom,
@@ -58,12 +58,14 @@ function App() {
   return (
     <Canvas camera={{ position: [0, 0, 2.5], fov: 75 }}>
       <Suspense fallback={null}>
-        <MyScene />
+        <ScrollControls pages={6} damping={0.5}>
+          <MyScene />
+        </ScrollControls>
       </Suspense>
       <Environment preset="city" />
       <directionalLight intensity={0.5} color={"#fff"} castShadow={true} />
 
-      <OrbitControls enabled={false} />
+      {/* <OrbitControls enabled={false} /> */}
       <EffectComposer multisampling={0}>
         <DepthOfField
           focusDistance={0}
